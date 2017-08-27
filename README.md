@@ -1,8 +1,8 @@
 # OpenVPN for Docker
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/hephaex/openvpn-docker/master/LICENSE)
-[![Docker Pulls](https://img.shields.io/docker/pulls/martin/openvpn.svg)](https://hub.docker.com/r/hephaex/openvpn-docker/)
-[![Docker Stars](https://img.shields.io/docker/stars/martin/openvpn.svg)](https://hub.docker.com/r/hephaex/openvpn-docker/)
+[![License](https://img.shields.io/badge/license-GPL-blue.svg)](https://raw.githubusercontent.com/hephaex/openvpn-docker/master/LICENSE)
+[![Docker Pulls](https://img.shields.io/docker/pulls/hephaex/openvpn.svg)](https://hub.docker.com/r/hephaex/openvpn-docker/)
+[![Docker Stars](https://img.shields.io/docker/stars/hephaex/openvpn.svg)](https://hub.docker.com/r/hephaex/openvpn-docker/)
 
 As tiny docker image, based on Alpine linux. 
 
