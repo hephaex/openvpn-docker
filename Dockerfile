@@ -1,17 +1,16 @@
 FROM alpine:edge
-
 MAINTAINER Mario Cho <hephaex@gmail.com>
 
 COPY ./bin /usr/local/bin
 
-RUN apk add --no-cache bash openvpn=2.4.3 git openssl && \
+RUN apk add --no-cache bash openvpn=2.4.4 git openssl && \
 # Get easy-rsa
     git clone https://github.com/OpenVPN/easy-rsa.git /tmp/easy-rsa && \
     cd && \
 # Cleanup
     apk del git && \
     rm -rf /tmp/easy-rsa/.git && cp -a /tmp/easy-rsa /usr/local/share/ && \
-    rm -rf /tmp/easy-rsa/ && \
+    rm -rf /tmp/easy-rsa/ /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/* && \
     ln -s /usr/local/share/easy-rsa/easyrsa3/easyrsa /usr/local/bin && \
     chmod 774 /usr/local/bin/*
 
