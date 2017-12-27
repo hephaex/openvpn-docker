@@ -32,42 +32,35 @@ As tiny docker image, based on Alpine linux.
 ## instalation Sequence
 
 1. Create containcer volume defined `$OPENVPN_DATA`
-
 > $ export OPENVPN_DATA=openvpn_data
+>
 > $ docker volume create --name $OPENVPN_DATA
 
 2. Initialize container using created volume `$OPENVPN_DATA`
-
 > $ docker run -v $OPENVPN_DATA:/etc/openvpn --rm hephaex/openvpn initopenvpn -u udp://VPN.SERVERNAME.COM
+>
 > $ docker run -v $OPENVPN_DATA:/etc/openvpn --rm -it hephaex/openvpn initpki
 
 3. Start OpenVPN server
-
 > $ docker run --name openvpn -v $OPENVPN_DATA:/etc/openvpn -v /etc/localtime:/etc/localtime:ro -d -p 1194:1194/udp --cap-add=NET_ADMIN hephaex/openvpn
 
 4. Generate a client certificate
-
 > $ docker run -v $OPENVPN_DATA:/etc/openvpn --rm -it hephaex/openvpn easyrsa build-client-full CLIENTNAME
 
 5. Retrieve the client configuration with embedded certificates
-
 > $ docker run -v $OPENVPN_DATA:/etc/openvpn --rm hephaex/openvpn getclient CLIENTNAME > CLIENTNAME.ovpn
 
 6. Revoke a client certificate
-
 > $ docker run -v $OPENVPN_DATA:/etc/openvpn --rm -it hephaex/openvpn revokeclient CLIENTNAME
 
 7. List all generated certificates
-
 > $ docker run -v $OPENVPN_DATA:/etc/openvpn --rm hephaex/openvpn listcerts
 
 8. Renew the CRL
-
 > $ docker run -v $OPENVPN_DATA:/etc/openvpn --rm -it hephaex/openvpn renewcrl
 
 
 9. To view the log output
-
 > $ docker logs openvpn
 
 
